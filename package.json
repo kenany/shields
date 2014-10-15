@@ -10,8 +10,12 @@
   "repository": "KenanY/shields",
   "license": "MIT",
   "author": "Kenan Yildirim <kenan@kenany.me> (http://kenany.me/)",
+  "bin": {
+    "shields": "bin/cmd.js"
+  },
   "main": "index.js",
   "files": [
+    "bin/cmd.js",
     "index.js",
     "LICENSE.txt"
   ],
