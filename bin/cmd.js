@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var readJson = require('read-package-json');
 var minimist = require('minimist');
 var path = require('path');
