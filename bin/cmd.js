@@ -7,6 +7,20 @@ var shields = require('../');
 
 var argv = minimist(process.argv.slice(2));
 
+// no args
+if (!argv._.length) {
+  var usage = [
+    'Shield generator for your current project.',
+    '',
+    'Usage:',
+    '  shields [travis] [gemnasium]'
+  ];
+
+  console.log(usage.join('\n'));
+
+  return;
+}
+
 var p = path.resolve('./package.json');
 
 readJson(p, function(error, pkg) {
