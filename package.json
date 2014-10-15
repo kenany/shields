@@ -2,7 +2,11 @@
   "name": "shields",
   "version": "1.0.0",
   "description": "Generate shields for your current project's README",
-  "keywords": [],
+  "keywords": [
+    "badges",
+    "gemnasium",
+    "travis"
+  ],
   "repository": "KenanY/shields",
   "license": "MIT",
   "author": "Kenan Yildirim <kenan@kenany.me> (http://kenany.me/)",
