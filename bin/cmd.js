@@ -5,7 +5,16 @@ var url = require('url');
 
 var shields = require('../');
 
-var argv = minimist(process.argv.slice(2));
+var argv = minimist(process.argv.slice(2), {
+  alias: {
+    v: 'version'
+  }
+});
+
+if (argv.version) {
+  console.log(require('../package.json').version);
+  return;
+}
 
 // no args
 if (!argv._.length) {
