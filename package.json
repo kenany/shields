@@ -1,6 +1,6 @@
 {
   "name": "shields",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate shields for your current project's README",
   "keywords": [
     "badges",
