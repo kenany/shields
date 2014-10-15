@@ -24,7 +24,11 @@ if (!argv._.length) {
     'Shield generator for your current project.',
     '',
     'Usage:',
-    '  shields [travis] [gemnasium]'
+    '  shields [travis] [gemnasium]',
+    '  shields -v | --version',
+    '',
+    'Options:',
+    '  -v --version  Show version'
   ];
 
   console.log(usage.join('\n'));
