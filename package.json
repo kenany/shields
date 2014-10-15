@@ -1,0 +1,28 @@
+{
+  "name": "shields",
+  "version": "0.0.0",
+  "description": "Generate shields for your current project's README",
+  "keywords": [],
+  "repository": "KenanY/shields",
+  "license": "MIT",
+  "author": "Kenan Yildirim <kenan@kenany.me> (http://kenany.me/)",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "LICENSE.txt"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tape test/index.js"
+  },
+  "dependencies": {
+    "minimist": "^1.1.0",
+    "read-package-json": "^1.2.7"
+  },
+  "devDependencies": {
+    "lodash.isfunction": "^2.4.1",
+    "tape": "^3.0.0"
+  }
+}
