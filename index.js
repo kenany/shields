@@ -1,7 +1,7 @@
 module.exports = shielder;
 
 var util = require('util');
-var shieldList = require('./lib/shields-list');
+var shieldsList = require('./lib/shields-list');
 
 function shielder(opts) {
   opts = opts || {};
@@ -14,7 +14,7 @@ function shielder(opts) {
   function shields(service, info) {
     if (!service) throw new TypeError('`service` is required')
 
-    var shieldTemplate = shieldList[service.toLowerCase()];
+    var shieldTemplate = shieldsList[service.toLowerCase()];
 
     if (!shieldTemplate) return undefined;
 

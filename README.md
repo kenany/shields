@@ -67,7 +67,7 @@ var shields = shielder({
 
 ### `shields(service, opts)`
 
-- `service` is a _String_ representing the service for wich the shield will be created. Currently supported values are: npm, travis, coveralls, climate, deps, devdeps, peerdeps, gemnasium.
+- `service` is a _String_ representing the service for which the shield will be created. Currently supported values are: npm, travis, coveralls, climate, deps, devdeps, peerdeps, gemnasium.
 - `opts.repo` is the GitHub repo targeted by the shield. For the current repo the value would be `KenanY/shields`.
 - `opts.npmName` is the npm name of the package for which the shield is created. This value is currently required only by the `npm` shield.
 

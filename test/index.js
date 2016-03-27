@@ -11,7 +11,7 @@ test('travis', function(t) {
   t.plan(1);
 
   var s = shielder()('travis', {
-    repo: 'KenanY/shields',
+    repo: 'KenanY/shields'
   });
   t.deepEqual(s, {
     text: 'Build status',
@@ -24,10 +24,10 @@ test('flat square styled travis', function(t) {
   t.plan(1);
 
   var shields = shielder({
-    style: 'flat-square',
+    style: 'flat-square'
   });
   var s = shields('travis', {
-    repo: 'KenanY/shields',
+    repo: 'KenanY/shields'
   });
   t.deepEqual(s, {
     text: 'Build status',
@@ -40,7 +40,7 @@ test('gemnasium', function(t) {
   t.plan(1);
 
   var s = shielder()('gemnasium', {
-    repo: 'KenanY/shields',
+    repo: 'KenanY/shields'
   });
   t.deepEqual(s, {
     text: 'Gemnasium',

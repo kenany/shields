@@ -50,7 +50,7 @@ readJson(p, function(error, pkg) {
   argv._.forEach(function(service) {
     var shield = shields(service, {
       repo: slug,
-      npmName: pkg.name,
+      npmName: pkg.name
     });
 
     console.log('[![' + shield.text + '][' + service + '-svg]][' + service + ']');
