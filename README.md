@@ -23,11 +23,14 @@ $ shields travis gemnasium
 Or from the API:
 
 ``` javascript
-var shields = require('shields');
+var shields = require('shields')();
 
-shields('KenanY/shields', 'travis');
+shields('travis', {
+  repo: 'KenanY/shields'
+});
 // => {
-// =>   svg: 'https://img.shields.io/travis/KenanY/shields.svg',
+// =>   text: 'Build status',
+// =>   image: 'https://img.shields.io/travis/KenanY/shields.svg?style=flat',
 // =>   link: 'https://travis-ci.org/KenanY/shields'
 // => }
 ```
@@ -49,16 +52,37 @@ $ npm install shields
 ## API
 
 ``` javascript
-var shields = require('shields');
+var shielder = require('shields');
 ```
 
-### `shields(slug, service)`
+### `var shields = shielder(opts)`
 
-Given a _String_ GitHub `slug`, returns an _Object_ `obj` which has two keys:
+  - `opts.style` is the style of the shield. The available styles are: flat (the
+    default one), flat-square and plastic.
 
-  - `obj.svg` is a _String_ link to the SVG of the shield for _String_ `service`
-  - `obj.link` is a _String_ link to the project page of `slug` on the website
+``` js
+var shields = shielder({
+  style: 'plastic'
+})
+```
+
+### `shields(service, opts)`
+
+  - `service` is a _String_ representing the service for which the shield will
+    be created. Currently supported values are: npm, travis, coveralls, climate,
+    deps, devdeps, peerdeps, gemnasium.
+  - `opts.repo` is the GitHub repo targeted by the shield. For the current repo
+    the value would be `KenanY/shields`.
+  - `opts.npmName` is the npm name of the package for which the shield is
+    created. This value is currently required only by the `npm` shield.
+
+The shields function returns an _Object_ `obj` which has three keys:
+
+  - `obj.image` is a _String_ link to the SVG of the shield for _String_
+    `service`
+  - `obj.link` is a _String_ link to the project page of `repo` on the website
     of `service`
+  - `obj.text` is a _String_ label for the `service`
 
 
    [travis]: https://travis-ci.org/KenanY/shields
