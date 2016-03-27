@@ -1,19 +1,40 @@
-function shields(slug, service) {
-  var ret = {
-    svg: 'https://img.shields.io/' + service + '/' + slug + '.svg',
-    link: ''
-  };
+module.exports = shielder;
 
-  switch (service) {
-    case 'travis':
-      ret.link = 'https://travis-ci.org/' + slug;
-      break;
-    case 'gemnasium':
-      ret.link = 'https://gemnasium.com/' + slug;
-      break;
+var util = require('util');
+var shieldList = require('./lib/shields-list');
+
+function shielder(opts) {
+  opts = opts || {};
+
+  var ext = opts.ext || 'svg';
+  var style = opts.style || 'flat';
+
+  return shields;
+
+  function shields(service, info) {
+    if (!service) throw new TypeError('`service` is required')
+
+    var shieldTemplate = shieldList[service.toLowerCase()];
+
+    if (!shieldTemplate) return undefined;
+
+    return {
+      text: shieldTemplate.text,
+      link: format(shieldTemplate.link, info),
+      image: getShieldImage(shieldTemplate.path, info)
+    };
   }
 
-  return ret;
-}
+  function getShieldImage(imagePath, info) {
+    return util.format(
+      'https://img.shields.io/%s.%s?style=%s',
+      format(imagePath, info), ext, style
+    );
+  };
 
-module.exports = shields;
+  function format(str, params) {
+    return str.replace(/{([^{}]+)}/, function (str, match) {
+      return params[match];
+    });
+  };
+}

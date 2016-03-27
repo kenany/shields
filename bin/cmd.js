@@ -5,7 +5,7 @@ var minimist = require('minimist');
 var path = require('path');
 var url = require('url');
 
-var shields = require('../');
+var shields = require('../')();
 
 var argv = minimist(process.argv.slice(2), {
   alias: {
@@ -48,11 +48,14 @@ readJson(p, function(error, pkg) {
   var links = [''];
 
   argv._.forEach(function(service) {
-    var shield = shields(slug, service);
-    var status = service === 'travis' ? 'Build' : 'Dependency';
-    console.log('[![' + status + ' Status][' + service + '-svg]][' + service + ']');
+    var shield = shields(service, {
+      repo: slug,
+      npmName: pkg.name,
+    });
+
+    console.log('[![' + shield.text + '][' + service + '-svg]][' + service + ']');
     links.push('   [' + service + ']: ' + shield.link);
-    links.push('   [' + service + '-svg]: ' + shield.svg);
+    links.push('   [' + service + '-svg]: ' + shield.image);
   });
   console.log(links.join('\n'));
 });
