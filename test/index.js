@@ -20,6 +20,34 @@ test('travis', function(t) {
   });
 });
 
+test('coveralls for branch', function(t) {
+  t.plan(1);
+
+  var s = shielder()('coveralls', {
+    repo: 'KenanY/shields',
+    branch: 'dev'
+  });
+  t.deepEqual(s, {
+    text: 'Test coverage for dev',
+    image: 'https://img.shields.io/coveralls/KenanY/shields/dev.svg?style=flat',
+    link: 'https://coveralls.io/r/KenanY/shields?branch=dev'
+  });
+});
+
+test('standard shield when branch shield not supported', function(t) {
+  t.plan(1);
+
+  var s = shielder()('npm', {
+    npmName: 'shields',
+    branch: 'dev'
+  });
+  t.deepEqual(s, {
+    text: 'NPM version',
+    image: 'https://img.shields.io/npm/v/shields.svg?style=flat',
+    link: 'https://www.npmjs.com/package/shields'
+  });
+});
+
 test('flat square styled travis', function(t) {
   t.plan(1);
 
