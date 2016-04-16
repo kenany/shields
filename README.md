@@ -73,6 +73,7 @@ var shields = shielder({
     deps, devdeps, peerdeps, gemnasium.
   - `opts.repo` is the GitHub repo targeted by the shield. For the current repo
     the value would be `KenanY/shields`.
+  - `opts.branch` is the branch name for which the shield is created.
   - `opts.npmName` is the npm name of the package for which the shield is
     created. This value is currently required only by the `npm` shield.
 
