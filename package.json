@@ -24,7 +24,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tape test/index.js"
+    "test": "tape test/index.js && mos test",
+    "md": "mos"
   },
   "dependencies": {
     "minimist": "^1.1.0",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "lodash.isfunction": "^3.0.8",
+    "mos": "^0.17.0",
     "tape": "^4.5.1"
   }
 }
